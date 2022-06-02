@@ -1,0 +1,54 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+	<head>
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+	</head>
+	<body style="background: #000;">
+	<h1 class="text-center mt-3" style="color: #fff;">Tourism on Mars Company</h1>
+	
+	<table class="table mt-5 table-dark">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Data de decolagem</th>
+				<th>Dias de estadia</th>
+				<th>Assentos disponíveis</th>
+				<th>Modelo da nave</th>
+				<th>Primeiro Comandante</th>
+				<th>Matrícula espacial do primeiro comandante</th>
+				<th>Segundo Comandante</th>
+				<th>Matrícula espacial do segundo comandante</th>
+				<th>Data de retorno</th>
+				<th>Tempo de permanência</th>
+				<th>Tempo de viagem de retorno à Terra</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="viagemMarte: ${viagensMarte}">
+				<td th:text="${viagemMarte.getId()}"></td>
+				<td th:text="${viagemMarte.getDataDecolagem()}"></td>
+				<td th:text="${viagemMarte.getDiasEstadiaMarte()}"></td>
+				<td th:text="${viagemMarte.getAssentos()}"></td>
+				<td th:text="${viagemMarte.getNomeModeloNave()}"></td>
+				<td th:text="${viagemMarte.getNomePrimeiroComandante()}"></td>	
+				<td th:text="${viagemMarte.getMatriculaInterespacialPrimeiroComandante()}"></td>
+				<td th:text="${viagemMarte.getNomeSegundoComandante()}"></td>
+				<td th:text="${viagemMarte.getMatriculaInterespacialSegundoComandante()}"></td>	
+				<td th:text="${viagemMarte.getDataRetorno()}"></td>
+				<td th:text="${viagemMarte.getDiasEstadiaMarte()+' dias'}"></td>	
+				<td>260 dias</td>		
+			</tr>
+		</tbody>
+	</table>
+	
+	<h4 class="text-center" style="color: #fff;">Selecione umas das ações abaixo</h4>
+	<div class="mt-5 d-flex justify-content-evenly">
+		<a class="btn btn-outline-warning" style="height:100px;width:300px;padding-top: 35px;" href="/criar">Criar nova viagem</a>
+		<a class="btn btn-outline-warning" style="height:100px;width:300px;padding-top: 35px;" href="/alterar">Alterar viagem</a>
+		<a class="btn btn-outline-warning" style="height:100px;width:300px;padding-top: 35px;" href="/deletar">Excluir viagem</a>	
+	</div>
+	</body>
+	
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>

@@ -1,0 +1,105 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+	<head>
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+	</head>
+	<body style="background: #000;">
+	<h1 class="text-center mt-3" style="color: #fff;">Alterar viagem</h1>
+	<form action="#" th:method="put" th:action="@{/alterar}" th:object="${viagemMarte}">
+		<div class="container">
+			<div class="row mt-3">
+				<div class="col-12">
+					<label class="form-label" style="color: #fff;">Digite o ID da viagem que alterar</label>
+					<input class="form-control" required type="text" name="_method" value="put" th:field="*{id}" />
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row mt-3">
+				<div class="col-12">
+					<label class="form-label" style="color: #fff;">Data de decolagem</label>
+					<input class="form-control" required value="put" placeholder="Ex: dd/MM/yyyy" id="data" maxlength="10" onkeyup="maskData()" type="text" th:field="*{dataDecolagem}" />
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row mt-3">
+				<div class="col-12">
+					<label class="form-label" style="color: #fff;">Dias de estadia em Marte</label>
+					<input class="form-control" required value="put"  placeholder="Ex: 3" type="number" th:field="*{diasEstadiaMarte}" />
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row mt-3">
+				<div class="col-12">
+					<label class="form-label" style="color: #fff;">Assentos disponíveis</label>
+					<input class="form-control" required value="put" placeholder="Ex: 3" type="number" th:field="*{assentos}" />
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row mt-3">
+				<div class="col-12">
+					<label class="form-label" style="color: #fff;">Nome do modelo da nave</label>
+					<input class="form-control" required value="put" placeholder="Ex: aaaa-9999" type="text" th:field="*{nomeModeloNave}" />
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row mt-3">
+				<div class="col-6">
+					<label class="form-label" style="color: #fff;">Nome do Primeiro comandante</label>
+					<input class="form-control" required value="put"  placeholder="Ex: Yuri da Silva" type="text" th:field="*{nomePrimeiroComandante}" />
+				</div>
+				<div class="col-6">
+					<label class="form-label" style="color: #fff;">Matrícula interespacial do Primeiro comandante</label>
+					<input class="form-control" required value="put"  placeholder="Ex: XXX-9999-X9X" type="text" th:field="*{matriculaInterespacialPrimeiroComandante}" />
+				</div>	
+			</div>
+		</div>
+		<div class="container">
+			<div class="row mt-3">
+				<div class="col-6">
+					<label class="form-label" style="color: #fff;">Nome do Segundo comandante</label>
+					<input class="form-control" required value="put" placeholder="Ex: João da Silva" type="text" th:field="*{nomeSegundoComandante}" />
+				</div>
+				<div class="col-6">
+					<label class="form-label" style="color: #fff;">Matrícula interespacial do Segundo comandante</label>
+					<input class="form-control" required value="put"  placeholder="Ex: XXX-9999-X9X" type="text" th:field="*{matriculaInterespacialSegundoComandante}" />
+				</div>	
+			</div>
+		</div>
+		<div class="container">
+			<button class="btn btn-outline-warning w-100 mt-3 mb-5" style="height:100px;" type="submit">Alterar viagem</button>
+		</div>
+	</form>
+	
+	</body>
+<script>
+	function maskData(){
+		var v = document.getElementById("data");
+		if(v.value.length == 2){
+			if(v.value > 31){
+				v.value = "";
+			}
+			else{
+				v.value = v.value + "/";
+			}
+		}
+		if(v.value.length == 5){
+			if(v.value > 12){
+				v.value = "";
+			}
+			else{
+				v.value = v.value + "/";
+			}
+		}		
+
+	}
+</script>	
+	
+	
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
